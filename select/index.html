@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="selectApp">
+<head>
+	<meta charset="utf-8" />
+	<title>select</title>
+	<script src="../bower_components/angular/angular.js"></script>
+	<script>
+	angular.module('selectApp', [])
+		.controller('myCtrl', ['$scope', function(scope){
+			scope.list = [
+				{
+					label: 'aa', 
+					value: '1'
+				}, 
+				{
+					label: 'bb', 
+					value: '2'
+				}
+			];
+
+			scope.selData = scope.list[0].value;
+
+			scope.changeList = function(){
+				var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 
+							  'h', 'i', 'j', 'k', 'l', 'm', 'n',
+							  'o', 'p', 'q', 'r', 's', 't',
+							  'u', 'v', 'w', 'x', 'y', 'z'];
+
+				scope.list[0].label = letters[Math.floor(Math.random()*24)] + letters[Math.floor(Math.random()*24)];
+			};
+		}]);
+	</script>
+</head>
+<body ng-controller="myCtrl">
+	<select ng-model="selData" ng-options="item.value as item.label for item in list">
+	</select>
+	
+	<button ng-click="changeList();">改变select label</button>
+</body>
+</html>
