@@ -1,6 +1,10 @@
-angular-ie8
-===========
-angular ie8 问题总结
+#angular 在ie8及ie8以上浏览器中遇到问题小结
 
-###ie8 动态更新select数据，视图不更新
-ps:该问题在与ie11集成的ie8中，竟不能重现
+虽然angular 1.3及以上版本都放弃了对ie8的支持，但是鉴于国内ie8浏览器市场份额（[百度统计近30%](http://tongji.baidu.com/data/browser)），有时候我们还是需要支持ie8的
+
+##angular要支持ie8需要做什么
+ * [angular developer guide](https://code.angularjs.org/1.2.27/docs/guide/ie) 给了我们一些建议
+ * 引入[html5shiv](https://github.com/aFarkas/html5shiv)，支持ie下自定义标签
+ * 引入[es5-shim](https://github.com/es-shims/es5-shim)，扩展es5新特性
+ 
+做到以上这些，angular基本可以支持ie8了，但是还会有一些细节问题，可能就需要具体问题具体对待了。
